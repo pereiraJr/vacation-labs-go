@@ -23,6 +23,7 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+      run: echo  ${{ secrets.EMAIL }}
       
   deploy:
     name: deploy
