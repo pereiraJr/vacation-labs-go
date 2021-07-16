@@ -11,7 +11,7 @@ import (
 )
 // Health returns that server is Up
 func Health(responseWriter http.ResponseWriter, request *http.Request) {
-	fmt.Fprint(responseWriter, "Server OK 4.0")
+	fmt.Fprint(responseWriter, "Server OK 5.0")
 }
 
 func GetTodo(responseWriter http.ResponseWriter, request *http.Request) {
