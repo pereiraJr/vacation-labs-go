@@ -1,1 +1,1 @@
-web: bin/vacation-labs-go
+web: bin/todo
