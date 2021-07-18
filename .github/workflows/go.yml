@@ -46,7 +46,7 @@ jobs:
       uses: actions/upload-artifact@v2 
       with:
         name: terraform.tfstate
-        path: *.tfstate
+        path: ./terraform.tfstate
 
   build:
     name: build
