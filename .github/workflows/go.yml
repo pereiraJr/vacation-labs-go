@@ -25,6 +25,8 @@ jobs:
       with:
         name: terraform.tfstate
         path: ./
+
+    - name: Unzip artifact
       run: tar -zxvf ./terraform.tfstate.zip
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
