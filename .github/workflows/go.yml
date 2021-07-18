@@ -43,6 +43,8 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: TF_VAR_HEROKU_API_KEY=${{ secrets.RESOURCE_HEROKU_API_KEY }} TF_VAR_HEROKU_EMAIL=${{ secrets.EMAIL }} terraform apply -auto-approve
+
+    - name: Upload Artifacts
       uses: actions/upload-artifact@v2 
       with:
         name: terraform.tfstate
