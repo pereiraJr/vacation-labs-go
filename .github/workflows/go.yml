@@ -26,6 +26,7 @@ jobs:
         workflow_conclusion: success
         workflow: go.yml
         path: ./
+        name: terraform.tfstate
 
     - name: Unzip Terra Form State
       run: more terraform.tfstate && ls terraform.tfstate
