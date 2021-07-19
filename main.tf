@@ -18,6 +18,13 @@ terraform {
       version = "~> 4.0"
     }
   }
+  backend "remote" {
+    organization = "vacation-labs"
+
+    workspaces {
+      name = "vacation-labs"
+    }
+  }
 }
 
 resource "heroku_app" "default" {
