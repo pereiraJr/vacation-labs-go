@@ -53,7 +53,7 @@ jobs:
       run: terraform fmt -check
 
     - name: Generate tfvars file
-      run: printf "HEROKU_API_KEY=\"${{ secrets.RESOURCE_HEROKU_API_KEY }}\"\HEROKU_EMAIL=\"${{ secrets.EMAIL }}\"" > terraform.auto.tfvars
+      run: printf "HEROKU_API_KEY=\"${{ secrets.RESOURCE_HEROKU_API_KEY }}\"\nHEROKU_EMAIL=\"${{ secrets.EMAIL }}\"" > terraform.auto.tfvars
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
