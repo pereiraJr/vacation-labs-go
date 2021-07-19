@@ -27,7 +27,7 @@ jobs:
         workflow: go.yml
 
     - name: Unzip Terra Form State
-      run: ls -la
+      run: more terraform.tfstate && ls terraform.tfstate
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
