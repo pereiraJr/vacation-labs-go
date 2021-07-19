@@ -22,5 +22,5 @@ terraform {
 
 resource "heroku_app" "default" {
   name   = "vacation-labs-go-terraform"
-  region = "eu"
+  region = "us"
 }
