@@ -1,2 +1,2 @@
-HEROKU_API_KEY="xxxxxx"
-HEROKU_EMAIL="xxxx@xxxx"
+HEROKU_API_KEY = "xxxxxx"
+HEROKU_EMAIL = "xxxx@xxxx"
