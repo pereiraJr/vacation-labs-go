@@ -1,0 +1,2 @@
+HEROKU_API_KEY = "${{ secrets.RESOURCE_HEROKU_API_KEY }}"
+HEROKU_EMAIL = "${{ secrets.EMAIL }}"
