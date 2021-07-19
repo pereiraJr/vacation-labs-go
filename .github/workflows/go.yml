@@ -5,8 +5,26 @@ on:
     branches: [ main ]
 
 jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.16
+
+    - name: Build
+      run: go build -v ./...
+
+    - name: Test
+      run:  go test ./...
+
   terraform:
     name: 'Terraform'
+    needs: build
     runs-on: ubuntu-latest
     environment: production
 
@@ -27,9 +45,6 @@ jobs:
         workflow: go.yml
         path: ./
         name: terraform.tfstate
-
-    - name: Unzip Terra Form State
-      run: more terraform.tfstate && ls terraform.tfstate
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
@@ -61,27 +76,9 @@ jobs:
         name: terraform.tfstate
         path: ./terraform.tfstate
 
-  build:
-    name: build
-    needs: terraform
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.16
-
-    - name: Build
-      run: go build -v ./...
-
-    - name: Test
-      run:  go test ./...
-      
   deploy:
     name: deploy
-    needs: build
+    needs: terraform
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
