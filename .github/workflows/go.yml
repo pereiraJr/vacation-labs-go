@@ -54,7 +54,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan &&  env | grep HEROKU
+      run: env | grep HEROKU && terraform plan
       env:
         HEROKU_API_KEY: ${{ secrets.RESOURCE_HEROKU_API_KEY }}
         HEROKU_EMAIL: ${{ secrets.EMAIL }}
