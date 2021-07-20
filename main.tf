@@ -34,5 +34,5 @@ resource "heroku_app" "default" {
 
 resource "heroku_addon" "database" {
   app  = heroku_app.default.name
-  plan = "heroku-postgresql:hobby-basic"
+  plan = "heroku-postgresql:hobby-dev"
 }
