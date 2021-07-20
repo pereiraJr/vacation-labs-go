@@ -31,9 +31,7 @@ resource "heroku_app" "default" {
   name   = "vacation-labs-go-terraform"
   region = "us"
   
-  buildpacks = [
-    "heroku/go"
-  ]
+  buildpacks = ["heroku/go"]
 }
 
 resource "heroku_addon" "database" {
