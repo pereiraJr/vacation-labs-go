@@ -31,3 +31,8 @@ resource "heroku_app" "default" {
   name   = "vacation-labs-go-terraform"
   region = "us"
 }
+
+resource "heroku_addon" "database" {
+  app  = heroku_app.default.name
+  plan = "heroku-postgresql:hobby-basic"
+}

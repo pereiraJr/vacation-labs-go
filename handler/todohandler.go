@@ -42,32 +42,7 @@ func InsertTodo(responseWriter http.ResponseWriter, request *http.Request) {
 			panic(err)
 		}
 
-		service.Inserir(todo)
-
-		fmt.Fprint(responseWriter, "POST done")
-	} else {
-		http.Error(responseWriter, "Invalid request method", http.StatusMethodNotAllowed)
-	}
-}
-
-func UpdateTodo(responseWriter http.ResponseWriter, request *http.Request) {
-	if request.Method == "PUT" {
-
-		body, err := ioutil.ReadAll(request.Body)
-		if err != nil {
-			http.Error(responseWriter, "Error reading request body",
-				http.StatusInternalServerError)
-		}
-
-		var todo entity.Todo
-		err = json.Unmarshal(body, &todo)
-		if err != nil {
-			http.Error(responseWriter, "Error parsing request body",
-				http.StatusInternalServerError)
-			panic(err)
-		}
-
-		service.UpdateTodo(todo)
+		service.Insert(todo)
 
 		fmt.Fprint(responseWriter, "POST done")
 	} else {
@@ -82,7 +57,7 @@ func SetTodoFinished(responseWriter http.ResponseWriter, request *http.Request) 
 		todoID, _ := strconv.Atoi(query.Get("todo-id"))
 		fmt.Fprint(responseWriter, todoID)
 
-		service.SetTodoFinished(todoID)
+		service.SetToFinished(todoID)
 
 		fmt.Fprint(responseWriter, "POST done")
 	} else {

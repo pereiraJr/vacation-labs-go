@@ -10,7 +10,6 @@ func RegisterRoute() http.Handler {
 	mux.HandleFunc("/", handler.Health)
 	mux.HandleFunc("/todo", handler.GetTodo)
 	mux.HandleFunc("/todo/post", handler.InsertTodo)
-	mux.HandleFunc("/todo/update", handler.UpdateTodo)
 	mux.HandleFunc("/todo/set-finished", handler.SetTodoFinished)
 
 	return mux

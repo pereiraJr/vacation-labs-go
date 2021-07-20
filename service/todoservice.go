@@ -1,37 +1,25 @@
 package service
 
 import (
+	"todo/data"
 	"todo/entity"
 )
 
-var results []entity.Todo
+var todoList []entity.Todo
 var id int
 
-func Inserir(todo entity.Todo) {
-
-	id++
-	todo.Id = id
-	results = append(results, todo)
+func Insert(todo entity.Todo) {
+	data.InsertTodo(todo)
 }
 
 func Find() []entity.Todo {
-	return results
+	return data.FindTodo()
 }
 
-func SetTodoFinished(todoID int) {
-
-	for i, todo := range results {
-		if todoID == todo.Id {
-			results[i].Finished = true
-		}
-	}
-}
-
-func UpdateTodo(todoUpdated entity.Todo) {
-
-	for i, todo := range results {
-		if todo.Id == todoUpdated.Id {
-			results[i].Description = todoUpdated.Description
+func SetToFinished(todoId int) {
+	for i, todo := range todoList {
+		if todoId == todo.Id {
+			todoList[i].Finished = true
 		}
 	}
 }
