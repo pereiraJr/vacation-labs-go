@@ -19,5 +19,5 @@ func main() {
 	}
 
 	log.Print("THIS IS THE PORT ", PORT)
-	http.ListenAndServe(PORT, route.RegisterRoute())
+	http.ListenAndServe(PORTA, route.RegisterRoute())
 }
