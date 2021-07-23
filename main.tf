@@ -6,6 +6,10 @@ variable "HEROKU_EMAIL" {
   type = string
 }
 
+variable "HEROKU_APP_NAME" {
+  type = string
+}
+
 provider "heroku" {
   email   = var.HEROKU_EMAIL
   api_key = var.HEROKU_API_KEY
@@ -28,7 +32,7 @@ terraform {
 }
 
 resource "heroku_app" "default" {
-  name   = "vacation-labs-go-terraform"
+  name   = var.HEROKU_APP_NAME
   region = "us"
 
   buildpacks = [
